@@ -1,0 +1,11 @@
+title: A test story
+scripts-path: ../../scripts/builtins
+story:
+  - name: hello
+    script: hello.txt
+    choices:
+      - text: it's foo time
+        target: foo
+  - name: foo
+    script: foo.txt
+    choices: []

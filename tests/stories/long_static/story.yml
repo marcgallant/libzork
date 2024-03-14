@@ -1,0 +1,25 @@
+title: A long static story
+scripts-path: ../../scripts/little_quest
+story:
+  - name: forest
+    script: forest.txt
+    choices:
+      - text: Enter the house
+        target: house
+      - text: Enter the castle
+        target: castle
+      - text: Eat a fruit
+        target: forest
+  - name: house
+    script: house.txt
+    choices: []
+  - name: castle
+    script: castle.txt
+    choices:
+      - text: Flee
+        target: forest
+      - text: Kill the dragon
+        target: tower
+  - name: tower
+    script: tower.txt
+    choices: []

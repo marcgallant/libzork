@@ -1,0 +1,16 @@
+title: A short static story
+scripts-path: ../../scripts/short_static
+story:
+  - name: welcome
+    script: welcome.txt
+    choices:
+      - text: Explore the cave
+        target: cave
+      - text: Go in the forest
+        target: forest
+  - name: cave
+    script: cave.txt
+    choices: []
+  - name: forest
+    script: forest.txt
+    choices: []

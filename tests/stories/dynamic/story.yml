@@ -1,0 +1,51 @@
+title: A dynamic story
+scripts-path: ../../scripts/little_quest
+variables:
+  - name: health
+    value: 10
+  - name: sword_taken
+    value: 0
+story:
+  - name: forest
+    script: forest.txt
+    choices:
+      - text: Enter the house
+        target: house
+      - text: Enter the castle
+        target: castle
+      - text: Eat a fruit
+        target: forest
+        actions:
+          - name: health
+            operation: add
+            value: 10
+  - name: house
+    script: house.txt
+    choices: []
+  - name: castle
+    script: castle_weapon.txt
+    choices:
+      - text: Flee
+        target: forest
+      - text: Take the sword
+        target: castle
+        conditions:
+          - name: sword_taken
+            comparison: equal
+            value: 0
+        actions:
+          - name: sword_taken
+            operation: add
+            value: 1
+      - text: Kill the dragon
+        target: tower
+        conditions:
+          - name: sword_taken
+            comparison: equal
+            value: 1
+          - name: health
+            comparison: greater
+            value: 10
+  - name: tower
+    script: tower.txt
+    choices: []
